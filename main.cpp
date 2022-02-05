@@ -82,17 +82,17 @@ public:
           host = optarg;
           break;
         }
-        
+
         case 'm': {
           mbox = optarg;
           break;
         }
-        
+
         case 'n': {
           ns = optarg;
           break;
         }
-        
+
         case 't': {
           int n = strtol(optarg, NULL, 10);
           if (n > 0 && n < 1000) nThreads = n;
@@ -405,8 +405,8 @@ extern "C" void* ThreadStats(void*) {
   return nullptr;
 }
 
-static const string mainnet_seeds[] = {"dnsseed.defileddollarstools.com", "dnsseed.defileddollarspool.org", "dnsseed.ltc.xurious.com", "dnsseed.koin-project.com", "seed-a.defileddollars.loshan.co.uk", "dnsseed.thrasher.io", ""};
-static const string testnet_seeds[] = {"testnet-seed.defileddollarstools.com", "seed-b.defileddollars.loshan.co.uk", "testnet-seed.ltc.xurious.com", "dnsseed-testnet.thrasher.io", ""};
+static const string mainnet_seeds[] = {"127.0.0.1", ""};
+static const string testnet_seeds[] = {"keksis", ""};
 static const string *seeds = mainnet_seeds;
 
 extern "C" void* ThreadSeeder(void*) {
@@ -463,10 +463,10 @@ int main(int argc, char **argv) {
   bool fDNS = true;
   if (opts.fUseTestNet) {
       printf("Using testnet.\n");
-      pchMessageStart[0] = 0xfd;
-      pchMessageStart[1] = 0xd2;
-      pchMessageStart[2] = 0xc8;
-      pchMessageStart[3] = 0xf1;
+      pchMessageStart[0] = 0xf1;
+      pchMessageStart[1] = 0xc2;
+      pchMessageStart[2] = 0xb6;
+      pchMessageStart[3] = 0xd2;
       seeds = testnet_seeds;
       fTestNet = true;
   }
